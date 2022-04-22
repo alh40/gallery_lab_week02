@@ -13,14 +13,7 @@ public class Main {
         int num = Integer.valueOf(input.nextLine());
         System.out.println("Artwork available: ");
 
-        LinkedHashSet<Integer> nftSet = new LinkedHashSet<>();
-        Random nft = new Random();
-        while (nftSet.size() < 6) {
-            nftSet.add(nft.nextInt(1000 - 0 + 1));
-        }
-
-        ArrayList<Integer> nftList = new ArrayList<>();
-        nftList.addAll(nftSet);
+        ArrayList<Integer> nftList = setNft();
 
         ArrayList<String> alexCollection = new ArrayList<>();
         ArrayList<String> jamesCollection = new ArrayList<>();
@@ -41,12 +34,6 @@ public class Main {
         Artwork Artwork5 = new Artwork(bankCollection.get(0), painter3.getName(), 500.0, nftList.get(4));
         Artwork Artwork6 = new Artwork(bankCollection.get(1), painter3.getName(), 600.0, nftList.get(5));
 
-        Artwork1.setPrice(100.0);
-        Artwork2.setPrice(200.0);
-        Artwork3.setPrice(300.0);
-        Artwork4.setPrice(400.0);
-        Artwork5.setPrice(500.0);
-        Artwork6.setPrice(600.0);
 
         ArrayList<String> galleryCollection = new ArrayList<>();
         galleryCollection.add(String.valueOf(Artwork1));
@@ -68,100 +55,113 @@ public class Main {
 
         System.out.println(galleryCollection);
 
-        System.out.println(gallery.stockTake());
+        double galleryStockTake = gallery.stockTake(stockTakeMap);
+
+        System.out.println(galleryStockTake);
+
+        Customer user = new Customer(name, num);
+
         while(true){
 
         System.out.println("Please select the Artwork you want to purchase!");
         String artwork = input.nextLine();
 
-        Customer user = new Customer(name, num);
-            user.setWallet(10900);
+
 
         if (artwork.equals("painting1")) {
 
 
             user.purchaseArtwork(Artwork1.getPrice());
+
             gallery.soldArtwork(Artwork1.getPrice());
+
             System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
             System.out.println("Money in till: " + gallery.getTill());
-
             String temp = String.valueOf(Artwork1);
             customerCollection.add(temp);
             galleryCollection.remove(String.valueOf(Artwork1));
             System.out.println("Remaining in Gallery Collection: ");
-
             System.out.println(galleryCollection);
 
-            System.out.println("Gallery Stock = " + gallery.stockTake());
+//            double galleryStockTake = gallery.stockTake(stockTakeMap);
+
+            galleryStockTake = galleryStockTake - stockTakeMap.get(artwork);
+            System.out.println("Gallery Stock = " +  galleryStockTake);
 
             System.out.println("Customer Collection: ");
             System.out.println(customerCollection);
             System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+
 
             if (artwork.equals("")) {
                 break;
             }
 
         } else if (artwork.equals("painting2")) {
+
             user.purchaseArtwork(Artwork2.getPrice());
             gallery.soldArtwork(Artwork2.getPrice());
             System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
             System.out.println("Money in till: " + gallery.getTill());
-
             String temp = String.valueOf(Artwork2);
             customerCollection.add(temp);
             galleryCollection.remove(String.valueOf(Artwork2));
             System.out.println("Remaining in Gallery Collection: ");
             System.out.println(galleryCollection);
-
-            System.out.println("Gallery Stock = " + gallery.stockTake());
-
+            galleryStockTake = galleryStockTake - stockTakeMap.get(artwork);
+            System.out.println("Gallery Stock = " +  galleryStockTake);
             System.out.println("Customer Collection: ");
             System.out.println(customerCollection);
             System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+
+          
+
             if (artwork.equals("")) {
                 break;
             }
 
         } else if (artwork.equals("painting3")) {
+
             user.purchaseArtwork(Artwork3.getPrice());
+
             gallery.soldArtwork(Artwork3.getPrice());
+
             System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
             System.out.println("Money in till: " + gallery.getTill());
-
             String temp = String.valueOf(Artwork3);
             customerCollection.add(temp);
             galleryCollection.remove(Artwork3);
             System.out.println("Remaining in Gallery Collection: ");
             System.out.println(galleryCollection);
-
-            System.out.println("Gallery Stock = " + gallery.stockTake());
-
+            galleryStockTake = galleryStockTake - stockTakeMap.get(artwork);
+            System.out.println("Gallery Stock = " +  galleryStockTake);
             System.out.println("Customer Collection: ");
             System.out.println(customerCollection);
             System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+
             if (artwork.equals("")) {
                 break;
             }
 
         } else if (artwork.equals("painting4")) {
+
+
             user.purchaseArtwork(Artwork4.getPrice());
             gallery.soldArtwork(Artwork4.getPrice());
             System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
-
             System.out.println("Money in till: " + gallery.getTill());
-            System.out.println("Gallery Stock = " + gallery.stockTake());
 
             String temp = String.valueOf(Artwork4);
             customerCollection.add(temp);
             galleryCollection.remove(Artwork4);
             System.out.println("Remaining in Gallery Collection: ");
             System.out.println(galleryCollection);
-            System.out.println("Gallery Stock = " + gallery.stockTake());
-
+            galleryStockTake = galleryStockTake - stockTakeMap.get(artwork);
+            System.out.println("Gallery Stock = " +  galleryStockTake);
             System.out.println("Customer Collection: ");
             System.out.println(customerCollection);
             System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+
             if (artwork.equals("")) {
                 break;
             }
@@ -172,46 +172,48 @@ public class Main {
             System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
             System.out.println("Money in till: " + gallery.getTill());
 
-            System.out.println("Gallery Stock = " + gallery.stockTake());
-
             String temp = String.valueOf(Artwork5);
             customerCollection.add(temp);
             galleryCollection.remove(Artwork5);
             System.out.println("Remaining in Gallery Collection: ");
             System.out.println(galleryCollection);
-
+            galleryStockTake = galleryStockTake - stockTakeMap.get(artwork);
+            System.out.println("Gallery Stock = " +  galleryStockTake);
             System.out.println("Customer Collection: ");
             System.out.println(customerCollection);
             System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+
             if (artwork.equals("")) {
                 break;
             }
 
         } else if (artwork.equals("painting6")) {
+
             user.purchaseArtwork(Artwork6.getPrice());
             gallery.soldArtwork(Artwork6.getPrice());
             System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
             System.out.println("Money in till: " + gallery.getTill());
-
-
-            System.out.println("Gallery Stock = " + gallery.stockTake());
 
             String temp = String.valueOf(Artwork6);
             customerCollection.add(temp);
             galleryCollection.remove(Artwork6);
             System.out.println("Remaining in Gallery Collection: ");
             System.out.println(galleryCollection);
-
+            galleryStockTake = galleryStockTake - stockTakeMap.get(artwork);
+            System.out.println("Gallery Stock = " +  galleryStockTake);
             System.out.println("Customer Collection: ");
             System.out.println(customerCollection);
             System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+
             if (artwork.equals("")) {
                 break;
             }
 
         } else {
             System.out.println("This artwork is not in stock!");
+
             System.out.println("Please Reselect!");
+
             if (artwork.equals("")) {
                 break;
             }
@@ -220,7 +222,19 @@ public class Main {
 
     }
 
+    private static ArrayList<Integer> setNft() {
+        LinkedHashSet<Integer> nftSet = new LinkedHashSet<>();
+        Random nft = new Random();
+        while (nftSet.size() < 6) {
+            nftSet.add(nft.nextInt(1000 - 0 + 1));
         }
+
+        ArrayList<Integer> nftList = new ArrayList<>();
+        nftList.addAll(nftSet);
+        return nftList;
+    }
+
+}
 
 //    A Gallery should have a name, a till and a collection of Artwork.
 //    A piece of Artwork should have a title, an artist, a price and an nft.

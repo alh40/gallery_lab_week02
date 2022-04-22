@@ -43,13 +43,22 @@ public class Gallery {
         stockTakeMap.put("painting6", 600.0);
     }
 
-    public double stockTake(){
+
+
+
+//    public void removeHashMapValue(String stockTakeMap){
+//
+//        HashMap<String, Double> stockTakeMap1 = new HashMap<>();
+//        Gallery gallery2 = new Gallery(this.name, this.till, this.collection);
+//
+//        stockTakeMap1.remove("painting1");
+//    }
+
+    public double stockTake(HashMap<String, Double> stockTakeMap){
         double sum = 0;
-        HashMap<String, Double> stockTakeMap = new HashMap<>();
 
-        Gallery gallery1 = new Gallery( this.name, this.till, this.collection);
 
-        gallery1.setHashMap(stockTakeMap);
+
 
         for(double item: stockTakeMap.values()){
             sum += item;

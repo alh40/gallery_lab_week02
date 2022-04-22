@@ -22,16 +22,16 @@ public void setWallet(double wallet){
     public double getWallet() {
         return wallet;
     }
-   private double newWallet = 0;
+//   private double newWallet = 0;
     public double purchaseArtwork(double amount){
 
         if(this.wallet <= 0){
             System.out.println("Insufficient funds, go get some money!");
         }else{
-           this.newWallet = this.wallet -= amount;
+            this.wallet -= amount;
 
         }
-        return newWallet;
+        return this.wallet;
     }
 
 

@@ -1,5 +1,9 @@
 package _pair_programming;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Random;
+
 public class Artwork {
 
     private String title;
@@ -15,6 +19,8 @@ public class Artwork {
         this.nft = artworkNft;
     }
 
+
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -29,9 +35,7 @@ public class Artwork {
 
 
 
-    public void setNft(int nft) {
-        this.nft = nft;
-    }
+
 
     public String getTitle() {
         return title;
@@ -45,9 +49,6 @@ public class Artwork {
         return price;
     }
 
-    public int getNft() {
-        return nft;
-    }
 
     @Override
     public String toString() {
