@@ -18,7 +18,7 @@ public class GalleryTest {
         double amount = 100;
         double actualValue = gallery.getTill() + amount;
         double expectedValue = 600;
-        assertEquals(actualValue, expectedValue);
+        assertEquals(expectedValue, actualValue);
     }
 
     Gallery gallery1 = new Gallery("gallery", 500.0, galleryCollection);
@@ -28,7 +28,7 @@ public class GalleryTest {
         double amount = 600;
         double actualValue = gallery.getTill() + amount;
         double expectedValue = 900;
-        assertEquals(actualValue, expectedValue);
+        assertEquals(expectedValue, actualValue);
     }
 
     Gallery gallery2 = new Gallery("gallery", 500.0, galleryCollection);
@@ -38,7 +38,7 @@ public class GalleryTest {
         double amount = 200;
         double actualValue = gallery.getTill() + amount;
         double expectedValue = 700;
-        assertEquals(actualValue, expectedValue);
+        assertEquals(expectedValue, actualValue);
     }
 
 //    given

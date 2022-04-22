@@ -12,7 +12,9 @@ public class Customer {
         this.wallet = customerWallet;
     }
 
-
+public void setWallet(double wallet){
+        this.wallet = wallet;
+}
     public String getName() {
         return name;
     }
@@ -20,15 +22,19 @@ public class Customer {
     public double getWallet() {
         return wallet;
     }
-
+   private double newWallet = 0;
     public double purchaseArtwork(double amount){
 
         if(this.wallet <= 0){
-            System.out.println("Insufficient funds, go get a job!");
+            System.out.println("Insufficient funds, go get some money!");
+        }else{
+           this.newWallet = this.wallet -= amount;
+
         }
-        this.wallet -= amount;
-        return this.wallet;
+        return newWallet;
     }
+
+
 
     @Override
     public String toString() {

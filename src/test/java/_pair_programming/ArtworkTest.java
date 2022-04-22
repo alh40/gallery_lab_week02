@@ -17,14 +17,15 @@ public class ArtworkTest {
 
         double actualValue = Artwork1.getPrice();
         double expectedValue = 100.0;
-        assertEquals(actualValue, expectedValue);
+        assertEquals(expectedValue, actualValue);
     }
-    Artwork Artwork2 = new Artwork("Painting1", "Painter1", 600.0, 1);
+    Artwork Artwork2 = new Artwork("Painting1", "Painter1", 200.0, 1);
     @Test
     public void getPrice2() {
 
         double actualValue = Artwork2.getPrice();
-        double expectedValue = 600.0;
-        assertEquals(actualValue, expectedValue);
+        double expectedValue = 200.0;
+        assertEquals(expectedValue, actualValue);
     }
+
 }

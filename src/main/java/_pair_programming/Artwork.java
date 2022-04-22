@@ -7,11 +7,30 @@ public class Artwork {
     private double price;
     private int nft;
 
+
     public Artwork(String artworkTitle, String artworkArtist, double artworkPrice, int artworkNft){
         this.title = artworkTitle;
         this.artist = artworkArtist;
         this.price = artworkPrice;
         this.nft = artworkNft;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+
+
+    public void setNft(int nft) {
+        this.nft = nft;
     }
 
     public String getTitle() {
@@ -39,6 +58,24 @@ public class Artwork {
                 ", nft=" + nft +
                 '}';
     }
+
+
+
+
+
+
+
+
+
+
+
+    //
+//    A Gallery should have a name, a till and a collection of Artwork.
+//    A piece of Artwork should have a title, an artist, a price and an nft.
+//    An Artist should have a name and a collection of artwork (i.e a list of artwork they have personally made).
+//    A Customer should have a name and a wallet.
+//    A Customer should be able to buy an Artwork from the Gallery, reducing the money in their wallet and increasing the money in the Gallery till.
+//
 
 
 

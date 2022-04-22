@@ -10,23 +10,37 @@ public class CustomerTest {
     Customer customer1 = new Customer("Alex", 10900);
     @Test
     public void testGetName() {
+        Customer customer1 = new Customer("Alex", 10900);
         String actualValue = customer1.getName();
         String expectedValue = "Alex";
-        assertEquals(actualValue, expectedValue);
+        assertEquals(expectedValue, actualValue);
     }
 
     @Test
     public void testGetWallet() {
+        Customer customer1 = new Customer("Alex", 10900);
         double actualValue = customer1.getWallet();
         double expectedValue = 10900;
+        assertEquals(actualValue, expectedValue);
     }
 
-    Customer customer = new Customer("Alex", 10900.0);
+
     @Test
     public void testPurchaseArtwork() {
 
-        double actualValue = customer.purchaseArtwork(100.0);
-        double expectedValue = 10800.0;
+        Customer customer1 = new Customer("Alex", 10900);
+        double amount = 0;
+        double actualValue = customer1.purchaseArtwork(100.0);
+        double expectedValue = 10800;
+        assertEquals(actualValue, expectedValue);
+    }
+
+    @Test
+    public void testPurchaseArtwork2() {
+        Customer customer1 = new Customer("Alex", 10900);
+        double amount = 0;
+        double actualValue = customer1.purchaseArtwork(200.0);
+        double expectedValue = 10700;
         assertEquals(actualValue, expectedValue);
     }
 
