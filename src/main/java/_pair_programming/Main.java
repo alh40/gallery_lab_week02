@@ -1,6 +1,8 @@
 package _pair_programming;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.LinkedHashSet;
 
 public class Main {
 
@@ -11,13 +13,25 @@ public class Main {
         System.out.println("Enter Name here!, to break enter nothing");
         String name = input.nextLine();
 
-        if(name.equals("")){
+        if (name.equals("")) {
             System.out.println("Thank you for shopping!");
             break;
         }
 
         System.out.println("Hi " + name + " please enter balance here!");
         int num = Integer.valueOf(input.nextLine());
+
+        System.out.println("Artwork available: ");
+
+
+        LinkedHashSet<Integer> nftSet = new LinkedHashSet<>();
+        Random nft = new Random();
+        while (nftSet.size() < 6) {
+            nftSet.add(nft.nextInt());
+        }
+
+        ArrayList<Integer> nftList = new ArrayList<>();
+        nftList.addAll(nftSet);
 
 
         ArrayList<String> alexCollection = new ArrayList<>();
@@ -28,20 +42,20 @@ public class Main {
         jamesCollection.add("painting2");
         jamesCollection.add("painting3");
 
-        ArrayList<String> colinCollection = new ArrayList<>();
-        colinCollection.add("painting3");
-        colinCollection.add("painting4");
+        ArrayList<String> bankCollection = new ArrayList<>();
+        bankCollection.add("painting3");
+        bankCollection.add("painting4");
 
         Artist painter1 = new Artist("Alex", alexCollection);
         Artist painter2 = new Artist("James", jamesCollection);
-        Artist painter3 = new Artist("Colin", colinCollection);
+        Artist painter3 = new Artist("Colin", bankCollection);
 
-        Artwork Artwork1 = new Artwork(alexCollection.get(0), "Alex", 100.0, 1);
-        Artwork Artwork2 = new Artwork(alexCollection.get(1), "Alex", 200.0, 2);
-        Artwork Artwork3 = new Artwork(jamesCollection.get(0), "James", 300.0, 3);
-        Artwork Artwork4 = new Artwork(jamesCollection.get(1), "James", 400.0, 4);
-        Artwork Artwork5 = new Artwork(colinCollection.get(0), "Colin", 500.0, 5);
-        Artwork Artwork6 = new Artwork(colinCollection.get(1), "Colin", 600.0, 6);
+        Artwork Artwork1 = new Artwork(alexCollection.get(0), "Alex", 100.0, nftList.get(0));
+        Artwork Artwork2 = new Artwork(alexCollection.get(1), "Alex", 200.0, nftList.get(1));
+        Artwork Artwork3 = new Artwork(jamesCollection.get(0), "James", 300.0, nftList.get(2));
+        Artwork Artwork4 = new Artwork(jamesCollection.get(1), "James", 400.0, nftList.get(3));
+        Artwork Artwork5 = new Artwork(bankCollection.get(0), "Bank", 500.0, nftList.get(4));
+        Artwork Artwork6 = new Artwork(bankCollection.get(1), "Bank", 600.0, nftList.get(5));
 
         ArrayList<String> galleryCollection = new ArrayList<>();
         galleryCollection.add(String.valueOf(Artwork1));
@@ -53,17 +67,134 @@ public class Main {
 
         Gallery gallery = new Gallery("gallery", 500.0, galleryCollection);
 
-        System.out.println(gallery.getCollection());
+        ArrayList<String> customerCollection = new ArrayList<>();
+
+        System.out.println(galleryCollection);
+
+        while(true){
+
+        System.out.println("Please select the Artwork you want to purchase!");
+        String artwork = input.nextLine();
+
 
         Customer user = new Customer(name, num);
 
-        user.purchaseArtwork(Artwork6.getPrice());
+        if (artwork.equals("painting1")) {
+            user.purchaseArtwork(Artwork1.getPrice());
+            gallery.soldArtwork(Artwork1.getPrice());
+            System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
+            System.out.println("Money in till: " + gallery.getTill());
 
-        gallery.soldArtwork(Artwork6.getPrice());
+            String temp = String.valueOf(Artwork1);
+            customerCollection.add(temp);
+            galleryCollection.remove(String.valueOf(Artwork1));
+            System.out.println("Remaining in Gallery Collection: ");
+            System.out.println(galleryCollection);
+            System.out.println("Customer Collection: ");
+            System.out.println(customerCollection);
+            System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+            if (artwork.equals("")) {
+                break;
+            }
 
-        System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
+        } else if (artwork.equals("painting2")) {
+            user.purchaseArtwork(Artwork2.getPrice());
+            gallery.soldArtwork(Artwork2.getPrice());
+            System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
+            System.out.println("Money in till: " + gallery.getTill());
 
-        System.out.println("Money in till: " + gallery.getTill());
+            String temp = String.valueOf(Artwork2);
+            customerCollection.add(temp);
+            galleryCollection.remove(String.valueOf(Artwork2));
+            System.out.println("Remaining in Gallery Collection: ");
+            System.out.println(galleryCollection);
+            System.out.println("Customer Collection: ");
+            System.out.println(customerCollection);
+            System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+            if (artwork.equals("")) {
+                break;
+            }
+
+        } else if (artwork.equals("painting3")) {
+            user.purchaseArtwork(Artwork3.getPrice());
+            gallery.soldArtwork(Artwork3.getPrice());
+            System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
+
+            String temp = String.valueOf(Artwork3);
+            customerCollection.add(temp);
+            galleryCollection.remove(String.valueOf(Artwork3));
+            System.out.println("Remaining in Gallery Collection: ");
+            System.out.println(galleryCollection);
+            System.out.println("Customer Collection: ");
+            System.out.println(customerCollection);
+            System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+            if (artwork.equals("")) {
+                break;
+            }
+
+        } else if (artwork.equals("painting4")) {
+            user.purchaseArtwork(Artwork4.getPrice());
+            gallery.soldArtwork(Artwork4.getPrice());
+            System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
+            System.out.println("Money in till: " + gallery.getTill());
+
+            String temp = String.valueOf(Artwork4);
+            customerCollection.add(temp);
+            galleryCollection.remove(String.valueOf(Artwork4));
+            System.out.println("Remaining in Gallery Collection: ");
+            System.out.println(galleryCollection);
+            System.out.println("Customer Collection: ");
+            System.out.println(customerCollection);
+            System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+            if (artwork.equals("")) {
+                break;
+            }
+
+        } else if (artwork.equals("painting5")) {
+            user.purchaseArtwork(Artwork5.getPrice());
+            gallery.soldArtwork(Artwork5.getPrice());
+            System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
+            System.out.println("Money in till: " + gallery.getTill());
+
+            String temp = String.valueOf(Artwork5);
+            customerCollection.add(temp);
+            galleryCollection.remove(String.valueOf(Artwork5));
+            System.out.println("Remaining in Gallery Collection: ");
+            System.out.println(galleryCollection);
+            System.out.println("Customer Collection: ");
+            System.out.println(customerCollection);
+            System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+            if (artwork.equals("")) {
+                break;
+            }
+
+        } else if (artwork.equals("painting6")) {
+            user.purchaseArtwork(Artwork6.getPrice());
+            gallery.soldArtwork(Artwork6.getPrice());
+            System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
+            System.out.println("Money in till: " + gallery.getTill());
+
+            String temp = String.valueOf(Artwork6);
+            customerCollection.add(temp);
+            galleryCollection.remove(String.valueOf(Artwork6));
+            System.out.println("Remaining in Gallery Collection: ");
+            System.out.println(galleryCollection);
+            System.out.println("Customer Collection: ");
+            System.out.println(customerCollection);
+            System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+            if (artwork.equals("")) {
+                break;
+            }
+
+        } else {
+            System.out.println("This artwork is not in stock!");
+            System.out.println("Please Reselect!");
+            if (artwork.equals("")) {
+                break;
+            }
+        }
+    }
+
     }
 
         }

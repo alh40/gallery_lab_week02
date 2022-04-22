@@ -1,5 +1,5 @@
 package _pair_programming;
-import java.util.ArrayList;
+
 public class Customer {
 
 //    private means that the variable can only be used within the Customer class ONLY.
@@ -12,6 +12,7 @@ public class Customer {
         this.wallet = customerWallet;
     }
 
+
     public String getName() {
         return name;
     }
@@ -20,12 +21,13 @@ public class Customer {
         return wallet;
     }
 
-    public void purchaseArtwork(double amount){
+    public double purchaseArtwork(double amount){
 
         if(this.wallet <= 0){
             System.out.println("Insufficient funds, go get a job!");
         }
         this.wallet -= amount;
+        return this.wallet;
     }
 
     @Override
