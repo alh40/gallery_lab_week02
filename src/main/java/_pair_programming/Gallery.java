@@ -7,11 +7,11 @@ public class Gallery {
 
     private String name;
     private double till;
-    private ArrayList<Artwork> collection;
+    private HashMap<Integer, Artwork> collection;
     private double stockTake;
     private String input;
 
-    public Gallery(String galleryName, double galleryTill, ArrayList<Artwork> galleryCollection){
+    public Gallery(String galleryName, double galleryTill, HashMap<Integer, Artwork> galleryCollection){
         this.name = galleryName;
         this.till = galleryTill;
         this.collection = galleryCollection;
@@ -25,7 +25,7 @@ public class Gallery {
         this.till = till;
     }
 
-    public void setCollection(ArrayList<Artwork> collection) {
+    public void setCollection(HashMap<Integer, Artwork> collection) {
 
     }
     public void setHashMap(HashMap<String, Double> stockTakeMap){
@@ -46,7 +46,7 @@ public class Gallery {
        return sum;
 
     }
-    public static Gallery setGallery(ArrayList<Artwork> galleryCollection) {
+    public static Gallery setGallery(HashMap<Integer, Artwork> galleryCollection) {
         Gallery gallery = new Gallery("gallery", 500.0, galleryCollection);
         gallery.setCollection(galleryCollection);
         return gallery;
@@ -57,13 +57,14 @@ public class Gallery {
         return stockTakeMap;
     }
 
-    public static ArrayList<Artwork> createList(){
+    public static HashMap<Integer, Artwork> createList(){
         ArrayList<Integer> nftList = Artwork.setNft();
 
         ArrayList<String> alexCollection = new ArrayList<>();
         ArrayList<String> jamesCollection = new ArrayList<>();
         ArrayList<String> bankCollection = new ArrayList<>();
-        ArrayList<Artwork> galleryCollection = new ArrayList<>();
+
+        HashMap<Integer, Artwork> galleryCollection = new HashMap<>();
 
         Artist painter1 = Artist.setArtist(alexCollection);
         Artist painter2 = Artist.setArtist1(jamesCollection);
@@ -76,12 +77,12 @@ public class Gallery {
         Artwork Artwork5 = Artwork.getArtwork5(nftList, bankCollection, painter3);
         Artwork Artwork6 = Artwork.getArtwork6(nftList, bankCollection, painter3);
 
-        galleryCollection.add(Artwork1);
-        galleryCollection.add(Artwork2);
-        galleryCollection.add(Artwork3);
-        galleryCollection.add(Artwork4);
-        galleryCollection.add(Artwork5);
-        galleryCollection.add(Artwork6);
+        galleryCollection.put(0, Artwork1);
+        galleryCollection.put(1, Artwork2);
+        galleryCollection.put(2, Artwork3);
+        galleryCollection.put(3, Artwork4);
+        galleryCollection.put(4, Artwork5);
+        galleryCollection.put(5, Artwork6);
 
         return galleryCollection;
 
@@ -104,7 +105,7 @@ public class Gallery {
         return till;
     }
 
-    public ArrayList<Artwork> getCollection() {
+    public HashMap<Integer, Artwork> getCollection() {
         return collection;
     }
     public static double getGalleryStockTake(ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, String artwork) {
@@ -120,7 +121,7 @@ public class Gallery {
         System.out.println("Thank you for shopping with us! Would you like to purchase another?");
         return galleryStockTake;
     }
-    public static void printCurrentGallery(ArrayList<Artwork> galleryCollection) {
+    public static void printCurrentGallery(HashMap<Integer, Artwork> galleryCollection) {
         System.out.println("Current Gallery Collection: ");
         System.out.println(galleryCollection);
     }
