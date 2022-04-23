@@ -51,6 +51,11 @@ public class Gallery {
         gallery.setCollection(galleryCollection);
         return gallery;
     }
+    public static HashMap<String, Double> getStringDoubleHashMap(Gallery gallery) {
+        HashMap<String, Double> stockTakeMap = new HashMap<>();
+        gallery.setHashMap(stockTakeMap);
+        return stockTakeMap;
+    }
 
     public static void galleryCollectionExtracted(Artwork Artwork1, Artwork Artwork2, Artwork Artwork3, Artwork Artwork4, Artwork Artwork5, Artwork Artwork6, ArrayList<String> galleryCollection) {
         galleryCollection.add(String.valueOf(Artwork1));

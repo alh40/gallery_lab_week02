@@ -49,6 +49,14 @@ public class Artwork {
         return Artwork1;
     }
 
+
+
+
+    public static void defaultElse() {
+        System.out.println("This artwork is not in stock!");
+        System.out.println("Please Reselect!");
+    }
+
     public static ArrayList<Integer> setNft() {
         LinkedHashSet<Integer> nftSet = new LinkedHashSet<>();
         Random nft = new Random();

@@ -2,19 +2,10 @@ package _pair_programming;
 import java.util.*;
 
 public class Main {
-    private static void defaultElse() {
-        System.out.println("This artwork is not in stock!");
-        System.out.println("Please Reselect!");
-    }
-    private static String getArtwork(Scanner input) {
+    private static String selectArtwork(Scanner input) {
         System.out.println("Please select the Artwork you want to purchase!");
         String artwork = input.nextLine();
         return artwork;
-    }
-    private static HashMap<String, Double> getStringDoubleHashMap(Gallery gallery) {
-        HashMap<String, Double> stockTakeMap = new HashMap<>();
-        gallery.setHashMap(stockTakeMap);
-        return stockTakeMap;
     }
     private static int getNum(Scanner input, String name) {
         System.out.println("Hi " + name + " please enter balance here!");
@@ -37,7 +28,7 @@ public class Main {
         ArrayList<String> alexCollection = new ArrayList<>();
         ArrayList<String> jamesCollection = new ArrayList<>();
         ArrayList<String> bankCollection = new ArrayList<>();
-        
+
         Artist painter1 = Artist.setArtist(alexCollection);
         Artist painter2 = Artist.setArtist1(jamesCollection);
         Artist painter3 = Artist.setArtist2(bankCollection);
@@ -48,6 +39,8 @@ public class Main {
         Artwork Artwork4 = Artwork.getArtwork4(nftList, jamesCollection, painter2);
         Artwork Artwork5 = Artwork.getArtwork5(nftList, bankCollection, painter3);
         Artwork Artwork6 = Artwork.getArtwork6(nftList, bankCollection, painter3);
+
+
         
         ArrayList<String> galleryCollection = new ArrayList<>();
         Gallery.galleryCollectionExtracted(Artwork1, Artwork2, Artwork3, Artwork4, Artwork5, Artwork6, galleryCollection);
@@ -55,7 +48,7 @@ public class Main {
 
         ArrayList<String> customerCollection = new ArrayList<>();
 
-        HashMap<String, Double> stockTakeMap = getStringDoubleHashMap(gallery);
+        HashMap<String, Double> stockTakeMap = Gallery.getStringDoubleHashMap(gallery);
 
         System.out.println(galleryCollection);
         double galleryStockTake = gallery.stockTake(stockTakeMap);
@@ -65,7 +58,7 @@ public class Main {
 
         while(galleryCollection.size() > 0){
 
-            String artwork = getArtwork(input);
+            String artwork = selectArtwork(input);
 
             if(galleryCollection.size() <= 0){
                 System.out.println("Gallery is out of Art! Thank you for shopping!");
@@ -115,7 +108,7 @@ public class Main {
             }
 
         } else {
-                defaultElse();
+                Artwork.defaultElse();
                 if (artwork.equals("")) {
                 break;
             }
