@@ -3,12 +3,6 @@ package _pair_programming;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//   A Gallery should have a name, a till and a collection of Artwork.
-//    A piece of Artwork should have a title, an artist, a price and an nft.
-//    An Artist should have a name and a collection of artwork (i.e a list of artwork they have personally made).
-//    A Customer should have a name and a wallet.
-//    A Customer should be able to buy an Artwork from the Gallery, reducing the money in their wallet and increasing the money in the Gallery till.
-//
 public class Gallery {
 
     private String name;
@@ -44,29 +38,28 @@ public class Gallery {
     }
 
 
-
-
-//    public void removeHashMapValue(String stockTakeMap){
-//
-//        HashMap<String, Double> stockTakeMap1 = new HashMap<>();
-//        Gallery gallery2 = new Gallery(this.name, this.till, this.collection);
-//
-//        stockTakeMap1.remove("painting1");
-//    }
-
     public double stockTake(HashMap<String, Double> stockTakeMap){
         double sum = 0;
-
-
-
-
         for(double item: stockTakeMap.values()){
             sum += item;
         }
        return sum;
 
     }
+    public static Gallery setGallery(ArrayList<String> galleryCollection) {
+        Gallery gallery = new Gallery("gallery", 500.0, galleryCollection);
+        gallery.setCollection(galleryCollection);
+        return gallery;
+    }
 
+    public static void galleryCollectionExtracted(Artwork Artwork1, Artwork Artwork2, Artwork Artwork3, Artwork Artwork4, Artwork Artwork5, Artwork Artwork6, ArrayList<String> galleryCollection) {
+        galleryCollection.add(String.valueOf(Artwork1));
+        galleryCollection.add(String.valueOf(Artwork2));
+        galleryCollection.add(String.valueOf(Artwork3));
+        galleryCollection.add(String.valueOf(Artwork4));
+        galleryCollection.add(String.valueOf(Artwork5));
+        galleryCollection.add(String.valueOf(Artwork6));
+    }
 
     public HashMap<String, Double> getHashMap(HashMap<String, Double> stockTakeMap){
         return stockTakeMap;
@@ -88,5 +81,23 @@ public class Gallery {
     public ArrayList<String> getCollection() {
         return collection;
     }
+    public static double getGalleryStockTake(ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, String artwork) {
+        galleryStockTake = getStockTake(customerCollection, stockTakeMap, galleryStockTake, artwork);
+        return galleryStockTake;
+    }
+
+    public static double getStockTake(ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, String artwork) {
+        galleryStockTake = galleryStockTake - stockTakeMap.get(artwork);
+        System.out.println("Gallery Stock = " + galleryStockTake);
+        System.out.println("Customer Collection: ");
+        System.out.println(customerCollection);
+        System.out.println("Thank you for shopping with us! Would you like to purchase another?");
+        return galleryStockTake;
+    }
+    public static void printCurrentGallery(ArrayList<String> galleryCollection) {
+        System.out.println("Current Gallery Collection: ");
+        System.out.println(galleryCollection);
+    }
+
 
 }
