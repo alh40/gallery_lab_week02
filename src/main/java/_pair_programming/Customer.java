@@ -1,12 +1,13 @@
 package _pair_programming;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Customer {
 
-//    private means that the variable can only be used within the Customer class ONLY.
     private String name;
     private double wallet;
 
-//    Constructor
     public Customer(String customerName, double customerWallet){
         this.name = customerName;
         this.wallet = customerWallet;
@@ -22,7 +23,7 @@ public void setWallet(double wallet){
     public double getWallet() {
         return wallet;
     }
-//   private double newWallet = 0;
+
     public double purchaseArtwork(double amount){
 
         if(this.wallet <= 0){
@@ -33,6 +34,117 @@ public void setWallet(double wallet){
         }
         return this.wallet;
     }
+
+
+    public static double ifPainting1(Artwork Artwork1, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, Customer user, String artwork) {
+        user.purchaseArtwork(Artwork1.getPrice());
+        gallery.soldArtwork(Artwork1.getPrice());
+        painting1Method1(Artwork1, galleryCollection, gallery, customerCollection, user);
+        galleryStockTake = Gallery.getGalleryStockTake(customerCollection, stockTakeMap, galleryStockTake, artwork);
+        return galleryStockTake;
+    }
+
+    public static double ifPainting2(Artwork Artwork2, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, Customer user, String artwork) {
+        user.purchaseArtwork(Artwork2.getPrice());
+        gallery.soldArtwork(Artwork2.getPrice());
+        painting2method1(Artwork2, galleryCollection, gallery, customerCollection, user);
+        galleryStockTake = Gallery.getStockTake(customerCollection, stockTakeMap, galleryStockTake, artwork);
+        return galleryStockTake;
+    }
+
+    public static double ifPainting3(Artwork Artwork3, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, Customer user, String artwork) {
+        user.purchaseArtwork(Artwork3.getPrice());
+        gallery.soldArtwork(Artwork3.getPrice());
+        painting3Method3(Artwork3, galleryCollection, gallery, customerCollection, user);
+        galleryStockTake = Gallery.getStockTake(customerCollection, stockTakeMap, galleryStockTake, artwork);
+        return galleryStockTake;
+    }
+
+    public static double ifPainting4(Artwork Artwork4, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, Customer user, String artwork) {
+        user.purchaseArtwork(Artwork4.getPrice());
+        gallery.soldArtwork(Artwork4.getPrice());
+        painting4Method4(Artwork4, galleryCollection, gallery, customerCollection, user);
+        galleryStockTake = Gallery.getStockTake(customerCollection, stockTakeMap, galleryStockTake, artwork);
+        return galleryStockTake;
+    }
+
+    public static double ifPainting5(Artwork Artwork5, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, Customer user, String artwork) {
+        user.purchaseArtwork(Artwork5.getPrice());
+        gallery.soldArtwork(Artwork5.getPrice());
+        painting5Method5(Artwork5, galleryCollection, gallery, customerCollection, user);
+        galleryStockTake = Gallery.getStockTake(customerCollection, stockTakeMap, galleryStockTake, artwork);
+        return galleryStockTake;
+    }
+
+    public static double ifPainting6(Artwork Artwork6, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, Customer user, String artwork) {
+        user.purchaseArtwork(Artwork6.getPrice());
+        gallery.soldArtwork(Artwork6.getPrice());
+        painting6Method6(Artwork6, galleryCollection, gallery, customerCollection, user);
+        galleryStockTake = Gallery.getStockTake(customerCollection, stockTakeMap, galleryStockTake, artwork);
+        return galleryStockTake;
+    }
+
+    private static void printWalletTill(Gallery gallery, Customer user) {
+        System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
+        System.out.println("Money in till: " + gallery.getTill());
+    }
+
+    private static void painting6Method6(Artwork Artwork6, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, Customer user) {
+        printWalletTill(gallery, user);
+        String temp = String.valueOf(Artwork6);
+        customerCollection.add(temp);
+        galleryCollection.remove(String.valueOf(Artwork6));
+        Gallery.printCurrentGallery(galleryCollection);
+    }
+
+
+
+    private static void painting5Method5(Artwork Artwork5, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, Customer user) {
+        printWalletTill(gallery, user);
+        String temp = String.valueOf(Artwork5);
+        customerCollection.add(temp);
+        galleryCollection.remove(String.valueOf(Artwork5));
+        Gallery.printCurrentGallery(galleryCollection);
+    }
+
+
+
+    private static void painting4Method4(Artwork Artwork4, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, Customer user) {
+        printWalletTill(gallery, user);
+        String temp = String.valueOf(Artwork4);
+        customerCollection.add(temp);
+        galleryCollection.remove(String.valueOf(Artwork4));
+        Gallery.printCurrentGallery(galleryCollection);
+    }
+
+    private static void painting3Method3(Artwork Artwork3, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, Customer user) {
+        printWalletTill(gallery, user);
+        String temp = String.valueOf(Artwork3);
+        customerCollection.add(temp);
+        galleryCollection.remove(String.valueOf(Artwork3));
+        Gallery.printCurrentGallery(galleryCollection);
+    }
+
+
+
+    private static void painting2method1(Artwork Artwork2, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, Customer user) {
+        printWalletTill(gallery, user);
+        String temp = String.valueOf(Artwork2);
+        customerCollection.add(temp);
+        galleryCollection.remove(String.valueOf(Artwork2));
+        Gallery.printCurrentGallery(galleryCollection);
+    }
+
+
+
+    private static void painting1Method1(Artwork Artwork1, ArrayList<String> galleryCollection, Gallery gallery, ArrayList<String> customerCollection, Customer user) {
+        String temp = String.valueOf(Artwork1);
+        customerCollection.add(temp);
+        galleryCollection.remove(String.valueOf(Artwork1));
+        printWalletTill(gallery, user);
+        Gallery.printCurrentGallery(galleryCollection);
+    }
+
 
 
 
