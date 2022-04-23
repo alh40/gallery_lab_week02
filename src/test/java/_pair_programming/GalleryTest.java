@@ -9,7 +9,7 @@ public class GalleryTest {
 
     private String galleryName;
     private double galleryTill;
-    private ArrayList<String> galleryCollection;
+    private ArrayList<Artwork> galleryCollection;
 
     Gallery gallery = new Gallery("gallery", 500.0, galleryCollection);
     @Test

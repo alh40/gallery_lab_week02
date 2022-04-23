@@ -7,11 +7,11 @@ public class Gallery {
 
     private String name;
     private double till;
-    private ArrayList<String> collection;
+    private ArrayList<Artwork> collection;
     private double stockTake;
     private String input;
 
-    public Gallery(String galleryName, double galleryTill, ArrayList<String> galleryCollection){
+    public Gallery(String galleryName, double galleryTill, ArrayList<Artwork> galleryCollection){
         this.name = galleryName;
         this.till = galleryTill;
         this.collection = galleryCollection;
@@ -25,7 +25,7 @@ public class Gallery {
         this.till = till;
     }
 
-    public void setCollection(ArrayList<String> collection) {
+    public void setCollection(ArrayList<Artwork> collection) {
 
     }
     public void setHashMap(HashMap<String, Double> stockTakeMap){
@@ -46,7 +46,7 @@ public class Gallery {
        return sum;
 
     }
-    public static Gallery setGallery(ArrayList<String> galleryCollection) {
+    public static Gallery setGallery(ArrayList<Artwork> galleryCollection) {
         Gallery gallery = new Gallery("gallery", 500.0, galleryCollection);
         gallery.setCollection(galleryCollection);
         return gallery;
@@ -57,13 +57,34 @@ public class Gallery {
         return stockTakeMap;
     }
 
-    public static void galleryCollectionExtracted(Artwork Artwork1, Artwork Artwork2, Artwork Artwork3, Artwork Artwork4, Artwork Artwork5, Artwork Artwork6, ArrayList<String> galleryCollection) {
-        galleryCollection.add(String.valueOf(Artwork1));
-        galleryCollection.add(String.valueOf(Artwork2));
-        galleryCollection.add(String.valueOf(Artwork3));
-        galleryCollection.add(String.valueOf(Artwork4));
-        galleryCollection.add(String.valueOf(Artwork5));
-        galleryCollection.add(String.valueOf(Artwork6));
+    public static ArrayList<Artwork> createList(){
+        ArrayList<Integer> nftList = Artwork.setNft();
+
+        ArrayList<String> alexCollection = new ArrayList<>();
+        ArrayList<String> jamesCollection = new ArrayList<>();
+        ArrayList<String> bankCollection = new ArrayList<>();
+        ArrayList<Artwork> galleryCollection = new ArrayList<>();
+
+        Artist painter1 = Artist.setArtist(alexCollection);
+        Artist painter2 = Artist.setArtist1(jamesCollection);
+        Artist painter3 = Artist.setArtist2(bankCollection);
+
+        Artwork Artwork1 = Artwork.getArtwork1(nftList, alexCollection, painter1);
+        Artwork Artwork2 = Artwork.getArtwork2(nftList, alexCollection, painter1);
+        Artwork Artwork3 = Artwork.getArtwork3(nftList, jamesCollection, painter2);
+        Artwork Artwork4 = Artwork.getArtwork4(nftList, jamesCollection, painter2);
+        Artwork Artwork5 = Artwork.getArtwork5(nftList, bankCollection, painter3);
+        Artwork Artwork6 = Artwork.getArtwork6(nftList, bankCollection, painter3);
+
+        galleryCollection.add(Artwork1);
+        galleryCollection.add(Artwork2);
+        galleryCollection.add(Artwork3);
+        galleryCollection.add(Artwork4);
+        galleryCollection.add(Artwork5);
+        galleryCollection.add(Artwork6);
+
+        return galleryCollection;
+
     }
 
     public HashMap<String, Double> getHashMap(HashMap<String, Double> stockTakeMap){
@@ -83,7 +104,7 @@ public class Gallery {
         return till;
     }
 
-    public ArrayList<String> getCollection() {
+    public ArrayList<Artwork> getCollection() {
         return collection;
     }
     public static double getGalleryStockTake(ArrayList<String> customerCollection, HashMap<String, Double> stockTakeMap, double galleryStockTake, String artwork) {
@@ -99,7 +120,7 @@ public class Gallery {
         System.out.println("Thank you for shopping with us! Would you like to purchase another?");
         return galleryStockTake;
     }
-    public static void printCurrentGallery(ArrayList<String> galleryCollection) {
+    public static void printCurrentGallery(ArrayList<Artwork> galleryCollection) {
         System.out.println("Current Gallery Collection: ");
         System.out.println(galleryCollection);
     }

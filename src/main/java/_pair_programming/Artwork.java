@@ -52,10 +52,6 @@ public class Artwork {
 
 
 
-    public static void defaultElse() {
-        System.out.println("This artwork is not in stock!");
-        System.out.println("Please Reselect!");
-    }
 
     public static ArrayList<Integer> setNft() {
         LinkedHashSet<Integer> nftSet = new LinkedHashSet<>();
@@ -80,10 +76,6 @@ public class Artwork {
     public void setPrice(double price) {
         this.price = price;
     }
-
-
-
-
 
     public String getTitle() {
         return title;
