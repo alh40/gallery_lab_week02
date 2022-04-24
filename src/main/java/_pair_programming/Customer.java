@@ -84,7 +84,7 @@ public void setWallet(double wallet){
         return galleryStockTake;
     }
 
-    private static void printWalletTill(Gallery gallery, Customer user) {
+    public static void printWalletTill(Gallery gallery, Customer user) {
         System.out.println(user.getName() + " has " + user.getWallet() + " left in their wallet.");
         System.out.println("Money in till: " + gallery.getTill());
     }

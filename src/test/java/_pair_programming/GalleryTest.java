@@ -2,6 +2,8 @@ package _pair_programming;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.testng.Assert.*;
 
 
@@ -9,7 +11,7 @@ public class GalleryTest {
 
     private String galleryName;
     private double galleryTill;
-    private ArrayList<Artwork> galleryCollection;
+    private HashMap<Integer, Artwork> galleryCollection;
 
     Gallery gallery = new Gallery("gallery", 500.0, galleryCollection);
     @Test

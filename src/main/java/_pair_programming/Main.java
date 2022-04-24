@@ -34,6 +34,7 @@ public class Main {
         Gallery gallery = Gallery.setGallery(galleryMap);
 
         ArrayList<String> customerCollection = new ArrayList<>();
+
         HashMap<String, Double> stockTakeMap = Gallery.getStringDoubleHashMap(gallery);
 
         System.out.println(galleryMap);
@@ -51,56 +52,37 @@ public class Main {
 
                 galleryStockTake = Customer.ifPainting1(galleryMap.get(0),  galleryMap, gallery, customerCollection, stockTakeMap, galleryStockTake, user, artwork);
 
-                if (artwork.equals("")) {
-                break;
-            }
-
         } else if (artwork.equals("painting2")) {
 
                 galleryStockTake = Customer.ifPainting2(galleryMap.get(1), galleryMap, gallery, customerCollection, stockTakeMap, galleryStockTake, user, artwork);
-                if (artwork.equals("")) {
-                break;
-            }
 
         } else if (artwork.equals("painting3")) {
 
                 galleryStockTake = Customer.ifPainting3(galleryMap.get(2), galleryMap, gallery, customerCollection, stockTakeMap, galleryStockTake, user, artwork);
-                if (artwork.equals("")) {
-                break;
-            }
 
         } else if (artwork.equals("painting4")) {
 
                 galleryStockTake = Customer.ifPainting4(galleryMap.get(3), galleryMap, gallery, customerCollection, stockTakeMap, galleryStockTake, user, artwork);
-                if (artwork.equals("")) {
-                break;
-            }
 
         } else if (artwork.equals("painting5")) {
 
                 galleryStockTake = Customer.ifPainting5(galleryMap.get(4), galleryMap, gallery, customerCollection, stockTakeMap, galleryStockTake, user, artwork);
-                if (artwork.equals("")) {
-                    break;
-            }
 
         } else if (artwork.equals("painting6")) {
-
                 galleryStockTake = Customer.ifPainting6(galleryMap.get(5), galleryMap, gallery, customerCollection, stockTakeMap, galleryStockTake, user, artwork);
-                if (artwork.equals("")) {
-                break;
-            }
 
-        } else {
-                defaultElse();
-                if (artwork.equals("")) {
+        }else if(artwork.equals("")){
+                System.out.println("Thank you for shopping!");
                 break;
+            }else {
+                defaultElse();
+
             }
         }
     }
 
     }
 
-}
 
 
 
